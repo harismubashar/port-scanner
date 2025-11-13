@@ -23,13 +23,9 @@ print("-" * 40)
 
 try:
 	for port in range(int(sys.argv[2]), int(sys.argv[3])):
-		#print(port)
 		with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s: #AF_INET for IPv4
-			#print("2")
 			socket.setdefaulttimeout(1)
-			#print("3")
 			result = s.connect_ex((target, port))
-			#print("4")
 			
 			if result == 0: #result == 0 means port is open. result == 1 means port is closed
 				print(f"Port {port} is open")
@@ -45,4 +41,5 @@ except socket.gaierror:
 except socket.error:
 	print("Could not connect to the server.")
 	sys.exit(1)
+
 
